@@ -24,9 +24,9 @@ local function notequal(name, value)
     return var_name ~= name and var_value ~= value
 end
 
-let(myvar, 10)
-out(myvar)
-out("hello, world!")
+-- of course, we need hello world! out("hello, world!")
+-- variable declaration: let(myvar, 10)
+-- print variable out(myvar)
 
-if equal(myvar, 10) then out(myvar) end
-if notequal(myvar, 20) then out(myvar) end
+-- if condition if equal(myvar, 10) then out(myvar) end
+-- another example if notequal(myvar, 20) then out(myvar) end
