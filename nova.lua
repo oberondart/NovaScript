@@ -1,27 +1,28 @@
--- Nova v0.0.2
+-- Nova v0.0.3
 
 var_name = nil
 var_value = nil
+local funcstorage = {}
+local varstorage = {}
 
-local function out(input)
-    if var_name == input then
-        print(var_value)
+local function let(name, value)
+    varstorage[name] = value
+end
+
+local function out(name)
+    if varstorage[name] ~= nil then
+        print(varstorage[name])
     else
-        print(input)
+        print(name)
     end
 end
 
-local function let(name, value)
-    var_name = name
-    var_value = value
-end
-
 local function equal(name, value)
-    return var_name == name and var_value == value
+    return varstorage[name] == value
 end
 
 local function notequal(name, value)
-    return var_name ~= name and var_value ~= value
+    return varstorage[name] ~= value
 end
 
 local function loop(times, event)
@@ -35,5 +36,25 @@ local function while_loop(times, event)
     while counter < times do
         event()
         counter = counter + 1
+    end
+end
+
+local function define(name, func)
+    funcstorage[name] = func
+end
+
+local function call(name)
+    if funcstorage[name] then
+        funcstorage[name]()
+    else
+        out("error: invalid function: " .. name .."")
+    end
+end
+
+local function ifclause(varname, value)
+    if varstorage[varname] == value then
+        out("true")
+    else
+        out("false")
     end
 end
