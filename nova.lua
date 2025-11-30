@@ -1,37 +1,79 @@
--- Nova v0.0.3
+-- Nova v0.0.5
+local Nova = {}
 
-var_name = nil
-var_value = nil
-local funcstorage = {}
-local varstorage = {}
+-- Storage tables
+Nova.varstorage = {}
+Nova.funcstorage = {}
 
-local function let(name, value)
-    varstorage[name] = value
+-- Variable assignment
+function Nova.let(name, value)
+    Nova.varstorage[name] = value
 end
 
-local function out(name)
-    if varstorage[name] ~= nil then
-        print(varstorage[name])
+-- Output
+function Nova.out(name)
+    if Nova.varstorage[name] ~= nil then
+        print(Nova.varstorage[name])
     else
         print(name)
     end
 end
 
-local function equal(name, value)
-    return varstorage[name] == value
+-- Input from user
+function Nova.input(name)
+    local value = io.read("*line")
+    Nova.varstorage[name] = value
 end
 
-local function notequal(name, value)
-    return varstorage[name] ~= value
+-- Comparisons
+function Nova.equal(name, value)
+    return Nova.varstorage[name] == value
 end
 
-local function loop(times, event)
+function Nova.notequal(name, value)
+    return Nova.varstorage[name] ~= value
+end
+
+function Nova.greater(name1, name2)
+    local a = Nova.varstorage[name1]
+    local b = Nova.varstorage[name2]
+    if a > b then
+        Nova.out(a .. " is greater than " .. b)
+    else
+        Nova.out(b .. " is greater than " .. a)
+    end
+end
+
+function Nova.less(name1, name2)
+    local a = Nova.varstorage[name1]
+    local b = Nova.varstorage[name2]
+    if a < b then
+        Nova.out(a .. " is less than " .. b)
+    else
+        Nova.out(b .. " is less than " .. a)
+    end
+end
+
+function Nova.greateroreqt(name1, name2)
+    local a = Nova.varstorage[name1]
+    local b = Nova.varstorage[name2]
+    if a >= b then Nova.out(a) else Nova.out(b) end
+end
+
+function Nova.lessoreqt(name1, name2)
+    local a = Nova.varstorage[name1]
+    local b = Nova.varstorage[name2]
+    if a <= b then Nova.out(a) else Nova.out(b) end
+end
+
+-- Loops
+function Nova.loop(times, event)
     for i = 1, times do
         event()
     end
 end
 
-local function while_loop(times, event)
+function Nova.while_loop(times, event)
     local counter = 0
     while counter < times do
         event()
@@ -39,22 +81,46 @@ local function while_loop(times, event)
     end
 end
 
-local function define(name, func)
-    funcstorage[name] = func
+-- Functions
+function Nova.func(name, fn)
+    Nova.funcstorage[name] = fn
 end
 
-local function call(name)
-    if funcstorage[name] then
-        funcstorage[name]()
+function Nova.call(name, ...)
+    if Nova.funcstorage[name] then
+        return Nova.funcstorage[name](...)
     else
-        out("error: invalid function: " .. name .."")
+        Nova.out("error: invalid function: " .. name .. ".")
     end
 end
 
-local function ifclause(varname, value)
-    if varstorage[varname] == value then
-        out("true")
+-- If clause
+function Nova.ifclause(varname, value, statement, elseclause)
+    if Nova.varstorage[varname] == value then
+        Nova.out(statement)
     else
-        out("false")
+        Nova.out(elseclause)
     end
 end
+
+-- Boolean operations
+function Nova.and_op(a, b) return a and b end
+function Nova.or_op(a, b) return a or b end
+function Nova.not_op(a) return not a end
+
+-- Run other Lua files
+function Nova.runfile(filename)
+    dofile(filename .. ".lua")
+end
+
+-- Boolean print
+function Nova.bool(name)
+    local value = Nova.varstorage[name]
+    if value == true then
+        Nova.out("true")
+    else
+        Nova.out("false")
+    end
+end
+
+return Nova
