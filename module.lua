@@ -13,16 +13,14 @@ function Nova.let(name, value)
 end
 
 function Nova.out(name)
-    if varstorage[name] ~= nil then
+    if varstorage[name] ~= nil and type(name) == "string" then
         print(varstorage[name])
-    else
-        print(name)
+        return
     end
-    if arraystorage[name] ~= nil then
+    if arraystorage[name] ~= nil and type(name) == "string" then
         print(arraystorage[name])
-    else
-        print(name)
     end
+    print(name)
 end
 
 function Nova.input(name)
