@@ -1,4 +1,4 @@
--- Nova v0.0.6
+-- Nova v0.0.7
 
 var_name = nil
 var_value = nil
@@ -101,11 +101,11 @@ local function call(name, ...)
     end
 end
 
-local function ifclause(varname, value, statement, elseclause)
-    if varstorage[varname] == value then
-        out(statement)
-    else
-        out(elseclause)
+local function ifdo(name, value, then_fn, else_fn)
+    if varstorage[name] == value then
+        then_fn()
+    elseif else_fn then
+        else_fn()
     end
 end
 
@@ -161,4 +161,68 @@ local function sort(name)
     if a == nil then
         out("error: array" .. a .. "doesn't exist")
     end
+end
+
+local function add(x, y)
+    x = varstorage[x] or x
+    y = varstorage[y] or y
+    return x + y
+end
+
+local function sub(x, y)
+    x = varstorage[x] or x
+    y = varstorage[y] or y
+    return x - y
+end
+
+local function mul(x, y)
+    x = varstorage[x] or x
+    y = varstorage[y] or y
+    return x * y
+end
+
+local function div(x, y)
+    x = varstorage[x] or x
+    y = varstorage[y] or y
+    if y == 0 then
+        print("error: division by zero")
+        return
+    end
+    return x / y
+end
+
+local function len(inputstring)
+    inputstring = varstorage[inputstring] or inputstring
+    if type(inputstring) ~= "string" then
+        print("error: len() expects type string")
+        return
+    end
+    return string.len(inputstring)
+end
+
+local function reverse(inputstring)
+    inputstring = varstorage[inputstring] or inputstring
+    if type(inputstring) ~= "string" then
+        print("error: reverse() expects type string")
+        return
+    end
+    return string.reverse(inputstring)
+end
+
+local function upper(inputstring)
+    inputstring = varstorage[inputstring] or inputstring
+    if type(inputstring) ~= "string" then
+        print("error: upper() expects type string")
+        return
+    end
+    return string.upper(inputstring)
+end
+
+local function lower(inputstring)
+    inputstring = varstorage[inputstring] or inputstring
+    if type(inputstring) ~= "string" then
+        print("error: lower() expects type string")
+        return
+    end
+    return string.lower(inputstring)
 end
