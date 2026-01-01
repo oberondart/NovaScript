@@ -13,3 +13,6 @@ nova.out("happy_number")
 nova.array("my_array", {1, 2, 3, 4, 5})
 nova.out("my_array")
 nova.out("goodbye, world!")
+
+nova.let("variable1", "novascript")
+nova.out(nova.len("variable1"))
