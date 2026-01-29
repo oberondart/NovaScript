@@ -7,6 +7,10 @@ NovaScript is a minimalistic, high-level scripting language built atop of Lua de
 
 ## Language Reference
 
+```nova
+chmod +x interpreter.lua (turn file into executable)
+```
+
 ### Variables
 
 ```nova
