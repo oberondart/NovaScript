@@ -6,6 +6,7 @@ I made it for fun :)
 
 ```nova
 chmod +x interpreter.lua (turn file into executable)
+lua interpreter.lua script.nova (run .nova file)
 ```
 
 ### Variables
