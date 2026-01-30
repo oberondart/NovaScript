@@ -289,6 +289,22 @@ function NovaInterpreter:parse_value(value_str)
         return nil
     end
     
+    -- Check for function calls (e.g., add("x", "y"))
+    local func_name, args_str = value_str:match("^(%w+)%s*%((.*)%)$")
+    if func_name then
+        local args = self:parse_arguments(args_str)
+        if self[func_name] and type(self[func_name]) == "function" then
+            local success, result = pcall(function()
+                return self[func_name](self, table.unpack(args))
+            end)
+            if success then
+                return result
+            end
+        elseif self.funcstorage[func_name] then
+            return self:call(func_name, table.unpack(args))
+        end
+    end
+    
     -- Check for array
     if value_str:match('^%[.*%]$') then
         local items_str = value_str:sub(2, -2)
