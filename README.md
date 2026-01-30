@@ -2,9 +2,6 @@
 Simple toy scripting language built entirely in Lua 5.4. This isn't really a serious project.
 I made it for fun :)
 
-## Warning
-WARNING: IS EXTREMELY BUGGY, SOME FUNCTIONS MAY OR MAY NOT WORK!!!
-
 ## Language Reference
 
 ```nova
