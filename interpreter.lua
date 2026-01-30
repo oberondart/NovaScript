@@ -496,3 +496,5 @@ end
 
 -- Run main
 main()
+
+collectgarbage("collect") -- forced garbage collection at end, helps when running large scripts
