@@ -1,6 +1,6 @@
 -- =============================================
 -- Nova Script Demo - Comprehensive Example
--- Demonstrating all features of Nova v0.0.7
+-- Demonstrating all features of Nova v1
 -- =============================================
 
 -- Welcome message
@@ -14,8 +14,8 @@ out("")
 -- =============================================
 out("--- 1. Variables and Basic Output ---")
 let("name", "Nova")
-let("version", 0.07)
-let("year", 2024)
+let("version", 1.0.0)
+let("year", 2026)
 
 out("Language: ")
 out("name")
