@@ -1,6 +1,6 @@
 # Nova
-Simple toy scripting language built entirely in Lua 5.4. This isn't really a serious project.
-I made it for fun :)
+Toy scripting language built in Lua 5.4.
+I made it for fun :>
 
 ## Language Reference
 
