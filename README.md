@@ -5,8 +5,8 @@ I made it for fun :>
 ## Language Reference
 
 ```nova
-chmod +x interpreter.lua (turn file into executable)
-lua interpreter.lua script.nova (run .nova file)
+chmod +x nova (turn nova into executable)
+./nova script.nova (run any .nova file)
 ```
 
 ### Variables
