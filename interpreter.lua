@@ -1,6 +1,6 @@
 #!/usr/bin/env lua
--- Nova Scripting Language Interpreter
--- Version 0.0.7
+-- interpreter
+-- Version 1.0.0
 -- 100% Lua Implementation
 
 local NovaInterpreter = {}
