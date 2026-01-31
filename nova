@@ -1,0 +1,10 @@
+#!/bin/bash
+# Nova scripting language command wrapper
+# Usage: nova [script.nova]
+#        nova (for REPL mode)
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Run the Nova interpreter
+lua "$SCRIPT_DIR/interpreter.lua" "$@"
