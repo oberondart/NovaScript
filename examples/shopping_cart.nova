@@ -1,0 +1,119 @@
+-- =============================================
+-- Shopping Cart Calculator
+-- Calculate total cost with discounts
+-- =============================================
+
+out("========================================")
+out("     SHOPPING CART CALCULATOR")
+out("========================================")
+out("")
+
+-- Product catalog
+out("--- Product Catalog ---")
+let("item1_name", "Laptop")
+let("item1_price", 999)
+
+let("item2_name", "Mouse")
+let("item2_price", 25)
+
+let("item3_name", "Keyboard")
+let("item3_price", 75)
+
+let("item4_name", "Monitor")
+let("item4_price", 299)
+
+out("1. ")
+out("item1_name")
+out("   Price: $")
+out("item1_price")
+
+out("2. ")
+out("item2_name")
+out("   Price: $")
+out("item2_price")
+
+out("3. ")
+out("item3_name")
+out("   Price: $")
+out("item3_price")
+
+out("4. ")
+out("item4_name")
+out("   Price: $")
+out("item4_price")
+
+out("")
+out("--- Your Cart ---")
+
+-- Items in cart with quantities
+let("laptop_qty", 1)
+let("mouse_qty", 2)
+let("keyboard_qty", 1)
+let("monitor_qty", 1)
+
+out("Laptop x ")
+out("laptop_qty")
+out("Mouse x ")
+out("mouse_qty")
+out("Keyboard x ")
+out("keyboard_qty")
+out("Monitor x ")
+out("monitor_qty")
+
+out("")
+out("--- Calculating Total ---")
+
+-- Calculate subtotals
+let("laptop_total", mul("item1_price", "laptop_qty"))
+let("mouse_total", mul("item2_price", "mouse_qty"))
+let("keyboard_total", mul("item3_price", "keyboard_qty"))
+let("monitor_total", mul("item4_price", "monitor_qty"))
+
+out("Laptop subtotal: $")
+out("laptop_total")
+out("Mouse subtotal: $")
+out("mouse_total")
+out("Keyboard subtotal: $")
+out("keyboard_total")
+out("Monitor subtotal: $")
+out("monitor_total")
+
+-- Calculate grand total
+let("subtotal1", add("laptop_total", "mouse_total"))
+let("subtotal2", add("keyboard_total", "monitor_total"))
+let("grand_total", add("subtotal1", "subtotal2"))
+
+out("")
+out("Subtotal: $")
+out("grand_total")
+
+-- Apply discount (10%)
+let("discount_percent", 10)
+let("discount_amount", 147)
+
+out("Discount (10%): -$")
+out("discount_amount")
+
+let("final_total", sub("grand_total", "discount_amount"))
+out("")
+out("========================================")
+out("TOTAL AFTER DISCOUNT: $")
+out("final_total")
+out("========================================")
+
+-- Tax calculation
+let("tax_rate", 8)
+let("tax_amount", 110)
+
+out("")
+out("Tax (8%): $")
+out("tax_amount")
+
+let("total_with_tax", add("final_total", "tax_amount"))
+out("")
+out("========================================")
+out("FINAL TOTAL (with tax): $")
+out("total_with_tax")
+out("========================================")
+out("")
+out("Thank you for shopping with us!")
