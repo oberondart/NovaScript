@@ -1,0 +1,54 @@
+-- =============================================
+-- Number Guessing Game in Nova
+-- A fun interactive game!
+-- =============================================
+
+out("========================================")
+out("    WELCOME TO THE NUMBER GAME!")
+out("========================================")
+out("")
+out("I'm thinking of a number between 1-10")
+out("")
+
+-- The secret number (in a real game, this would be random)
+let("secret", 7)
+let("max_tries", 3)
+let("try_count", 0)
+
+out("You have 3 tries to guess it!")
+out("")
+
+-- First guess
+out("Guess #1: Enter a number (1-10)")
+input("guess1")
+let("try_count", 1)
+
+out("You guessed: ")
+out("guess1")
+
+-- Note: In this simplified version, we'll show the solution
+-- In a full implementation, you'd use ifdo() for comparison
+
+out("")
+out("Guess #2: Try again!")
+input("guess2")
+let("try_count", 2)
+
+out("You guessed: ")
+out("guess2")
+
+out("")
+out("Guess #3: Last chance!")
+input("guess3")
+let("try_count", 3)
+
+out("You guessed: ")
+out("guess3")
+
+out("")
+out("========================================")
+out("The secret number was: ")
+out("secret")
+out("========================================")
+out("")
+out("Thanks for playing!")

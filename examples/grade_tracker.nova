@@ -1,0 +1,144 @@
+-- =============================================
+-- Student Grade Tracker System
+-- Track multiple students and calculate stats
+-- =============================================
+
+out("========================================")
+out("    STUDENT GRADE TRACKER SYSTEM")
+out("========================================")
+out("")
+
+-- =============================================
+-- STUDENT 1: Alice Johnson
+-- =============================================
+out("--- Student 1: Alice Johnson ---")
+let("alice_name", "Alice Johnson")
+let("alice_id", 1001)
+
+array("alice_grades", [95, 92, 88, 94, 90])
+out("Student: ")
+out("alice_name")
+out("ID: ")
+out("alice_id")
+out("Grades: ")
+out("alice_grades")
+
+let("alice_total", 459)
+let("alice_tests", 5)
+let("alice_avg", div("alice_total", "alice_tests"))
+out("Average: ")
+out("alice_avg")
+
+sort("alice_grades")
+out("Sorted grades: ")
+out("alice_grades")
+out("")
+
+-- =============================================
+-- STUDENT 2: Bob Smith
+-- =============================================
+out("--- Student 2: Bob Smith ---")
+let("bob_name", "Bob Smith")
+let("bob_id", 1002)
+
+array("bob_grades", [78, 85, 82, 88, 91])
+out("Student: ")
+out("bob_name")
+out("ID: ")
+out("bob_id")
+out("Grades: ")
+out("bob_grades")
+
+let("bob_total", 424)
+let("bob_tests", 5)
+let("bob_avg", div("bob_total", "bob_tests"))
+out("Average: ")
+out("bob_avg")
+
+sort("bob_grades")
+out("Sorted grades: ")
+out("bob_grades")
+out("")
+
+-- =============================================
+-- STUDENT 3: Carol Davis
+-- =============================================
+out("--- Student 3: Carol Davis ---")
+let("carol_name", "Carol Davis")
+let("carol_id", 1003)
+
+array("carol_grades", [92, 95, 89, 93, 97])
+out("Student: ")
+out("carol_name")
+out("ID: ")
+out("carol_id")
+out("Grades: ")
+out("carol_grades")
+
+let("carol_total", 466)
+let("carol_tests", 5)
+let("carol_avg", div("carol_total", "carol_tests"))
+out("Average: ")
+out("carol_avg")
+
+sort("carol_grades")
+out("Sorted grades: ")
+out("carol_grades")
+out("")
+
+-- =============================================
+-- CLASS STATISTICS
+-- =============================================
+out("========================================")
+out("         CLASS STATISTICS")
+out("========================================")
+
+let("total_students", 3)
+out("Total Students: ")
+out("total_students")
+
+out("")
+out("Individual Averages:")
+out("Alice: ")
+out("alice_avg")
+out("Bob: ")
+out("bob_avg")
+out("Carol: ")
+out("carol_avg")
+
+let("avg_sum", add("alice_avg", "bob_avg"))
+let("class_avg_total", add("avg_sum", "carol_avg"))
+let("class_avg", div("class_avg_total", "total_students"))
+
+out("")
+out("Class Average: ")
+out("class_avg")
+
+-- Highest and lowest performers
+out("")
+out("Performance Comparison:")
+greater("alice_avg", "bob_avg")
+greater("carol_avg", "alice_avg")
+
+out("")
+out("========================================")
+
+-- All student IDs
+array("all_ids", [1001, 1002, 1003])
+out("Enrolled Student IDs:")
+out("all_ids")
+
+-- Grade distribution example
+array("all_grades", [95, 92, 88, 94, 90, 78, 85, 82, 88, 91, 92, 95, 89, 93, 97])
+out("")
+out("All Grades Combined:")
+out("all_grades")
+
+sort("all_grades")
+out("Sorted All Grades:")
+out("all_grades")
+
+out("")
+out("========================================")
+out("    End of Grade Report")
+out("========================================")
